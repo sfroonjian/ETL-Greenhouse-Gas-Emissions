@@ -1,0 +1,10 @@
+Vehicle Type,MPG Gasoline,MPG Diesel,VMT,Annual Fuel Use (GGE),Source
+Transit Bus,3.3,3.7," 43,647 ","13,329",A
+Class 8 Truck,5.3,6.0 ," 62,751 ","11,818",B
+Refuse Truck,2.5,2.8," 25,000 ","10,089",C
+Paratransit Shuttle,7.1,8.0," 29,429 ","4,157",A
+Delivery Truck,6.5,7.4 ," 12,435 ","1,899",B
+School Bus,6.2,7.0," 12,000 ","1,937",D
+Light Truck/Van,17.5 ,19.8," 11,543 ",660,B
+Car,24.2 ,27.3," 11,467 ",474,B
+Motorcycle,44.0 ,49.7," 2,312 ",53,B

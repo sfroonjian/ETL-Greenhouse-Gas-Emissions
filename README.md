@@ -19,7 +19,7 @@ The green_vehicles table was built from a csv base file. All year tags had to be
 
 The vehicle_count table was built from a csv base file and required more involved cleaning. The data was filtered to a select range of years and unnecessary columns were dropped along with all rows containing NaN values, as they were populated from internal header rows in the original file. All rows with missing data were also dropped and the table was transposed to make “year” into a column and not row. Column names had to be changed to match Postgres styling and the entire table was recast as int64.
 
-The emissions_facilities table was built by scraping the EPA “FLIGHT” website. The website itself holds reported emissions data by facility. The facilities are all organized by state. When it comes to data cleaning, there was not much to do; the data reflected on the website is pretty clean. The only cleaning that had to be done was in pandas, for DataFrames. The reason for “cleaning” was because the pgadmin4 website wasn’t able to import the DataFrames (initially). Column names didn’t have to be changed for Postgres styling. All columns were imported as strings.
+The emissions_facilities table was built by scraping the EPA “FLIGHT” website. The website itself holds reported emissions data by facility for 2018 ONLY. The facilities are all organized by state. When it comes to data cleaning, there was not much to do; the data reflected on the website is pretty clean. The only cleaning that had to be done was in pandas, for DataFrames. The reason for “cleaning” was because the pgadmin4 website wasn’t able to import the DataFrames (initially). Column names didn’t have to be changed for Postgres styling. All columns were imported as strings.
 
 
 ## **Table descriptions:**
@@ -51,7 +51,7 @@ vehicle_count
 This table has a count of the number of active/registered vehicles of various classes in the United States annually between 2000-2006.
 
 emissions_facilities
-The table will hold data regarding reported emissions by industry in the United States for the year 2018. Each row holds facility name, state (location in USA), total reported emissions, and product of each facility.
+The table will hold data for 2018 only regarding reported emissions by industry in the United States for the year 2018. Each row holds facility name, state (location in USA), total reported emissions, and product of each facility.
 
 For example queries please see query.sql file
 

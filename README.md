@@ -1,23 +1,15 @@
 ## **Data Cleaning Explanation:**
 The tables gathered for this project focus on how different sectors play a part in greenhouse gasemissions.
 
-The tables, electric_data and electric_waste, were extracted as csv files from the International Energy Agency's (IEA) website. The only transformation that they needed were their column names were changed to be in proper PostgreSQL format.
-
-The wri_data table was also extracted as a csv files from the World Resources Institute's website, and it was also pretty organized. The column names were changed for PostgreSQL use, and there was also a significant amount of NaNs that needed to be removed from the 1970s.
-
-The agri_emissions table came as a csv file from the EPA’s website. Once extracted, the columns and rows had to be switched (using .transpose()) so that all the years were in a single column instead of the column headers. The top row of the dataframe then had to be pushed up to become the column headers. The index then had to be reset so that the years were the first column instead of the index. Lastly, the column headers had to be renamed to fit PostgreSQL’s naming format.
-
-The country_food_emissions table had to be scraped from a web page using Splinter and Beautiful Soup. Because the table on the webpage had icons instead of words as column headers, the dataframe had unnamed headers, and every column had to be renamed. Then only the data for food that was “actually consumed” and the totals were kept by deleting data related to “supplied for consumption”. An issue this dataframe initially had was that there were 3 levels of column headers, but to import into PostgreSQL, there can only be one. Therefore, two levels had to be removed and the remaining level had to be renamed more appropriately.
-
-The fuel_usage table was built from a csv base file and required minimal cleaning. A source column was dropped as it was unnecessary for this current project. Otherwise the only transformations that were made were renaming columns to match Postgres styling, and column data types were changed to ensure all numeric values were integers or floats. 
-
-The trans_emission_types was built from a csv base file and was first filtered to a select range of years. Columns were renamed to match Postgres styling, the table was transposed to allow years to act as a column and not rows, and the year column was reformatted into an integer data type.
-
-The green_vehicles table was built from a csv base file. All year tags had to be renamed to remove extra text and missing data had to be replaced with zero values rather than the letter "Z". The table was transposed to make “year” a column and all column names were restyled for Postgres. The entire table was also recast as int64 to allow for use in queries.
-
-The vehicle_count table was built from a csv base file and required more involved cleaning. The data was filtered to a select range of years and unnecessary columns were dropped along with all rows containing NaN values, as they were populated from internal header rows in the original file. All rows with missing data were also dropped and the table was transposed to make “year” into a column and not row. Column names had to be changed to match Postgres styling and the entire table was recast as int64.
-
-The emissions_facilities table was built by scraping the EPA “FLIGHT” website using Beautiful Soup and Splinter. To extract the needed data from the website, Splinter was used to exit out of the inital pop up when you first enter the website. A for loop utilizing Splinter and Pandas was then use to click on states in a drop down menu and add their data to one large dataframe. The transfomration step involved dropping a repeated index columns and a column with unneeded information, and renaming columns to match Postgres styling.
+* The tables, electric_data and electric_waste, were extracted as csv files from the International Energy Agency's (IEA) website. The only transformation that they needed were their column names were changed to be in proper PostgreSQL format.
+* The wri_data table was also extracted as a csv files from the World Resources Institute's website, and it was also pretty organized. The column names were changed for PostgreSQL use, and there was also a significant amount of NaNs that needed to be removed from the 1970s.
+* The agri_emissions table came as a csv file from the EPA’s website. Once extracted, the columns and rows had to be switched (using .transpose()) so that all the years were in a single column instead of the column headers. The top row of the dataframe then had to be pushed up to become the column headers. The index then had to be reset so that the years were the first column instead of the index. Lastly, the column headers had to be renamed to fit PostgreSQL’s naming format.
+* The country_food_emissions table had to be scraped from a web page using Splinter and Beautiful Soup. Because the table on the webpage had icons instead of words as column headers, the dataframe had unnamed headers, and every column had to be renamed. Then only the data for food that was “actually consumed” and the totals were kept by deleting data related to “supplied for consumption”. An issue this dataframe initially had was that there were 3 levels of column headers, but to import into PostgreSQL, there can only be one. Therefore, two levels had to be removed and the remaining level had to be renamed more appropriately.
+* The fuel_usage table was built from a csv base file and required minimal cleaning. A source column was dropped as it was unnecessary for this current project. Otherwise the only transformations that were made were renaming columns to match Postgres styling, and column data types were changed to ensure all numeric values were integers or floats. 
+* The trans_emission_types was built from a csv base file and was first filtered to a select range of years. Columns were renamed to match Postgres styling, the table was transposed to allow years to act as a column and not rows, and the year column was reformatted into an integer data type.
+* The green_vehicles table was built from a csv base file. All year tags had to be renamed to remove extra text and missing data had to be replaced with zero values rather than the letter "Z". The table was transposed to make “year” a column and all column names were restyled for Postgres. The entire table was also recast as int64 to allow for use in queries.
+* The vehicle_count table was built from a csv base file and required more involved cleaning. The data was filtered to a select range of years and unnecessary columns were dropped along with all rows containing NaN values, as they were populated from internal header rows in the original file. All rows with missing data were also dropped and the table was transposed to make “year” into a column and not row. Column names had to be changed to match Postgres styling and the entire table was recast as int64.
+* The emissions_facilities table was built by scraping the EPA “FLIGHT” website using Beautiful Soup and Splinter. To extract the needed data from the website, Splinter was used to exit out of the inital pop up when you first enter the website. A for loop utilizing Splinter and Pandas was then use to click on states in a drop down menu and add their data to one large dataframe. The transfomration step involved dropping a repeated index columns and a column with unneeded information, and renaming columns to match Postgres styling.
 
 ## **Table descriptions:**
 1. electric_data
@@ -43,7 +35,7 @@ The emissions_facilities table was built by scraping the EPA “FLIGHT” websit
     
 **For example queries please see the "query.sql" file.**
 
-## **How to re-create the database:**
+## **How to re-create the relational PostgreSQL database:**
 1. Open PGAdmin
 1. Create a database nameed "emissions_db"
 1. Copy and paste the schema in the file, "schema.sql" into your query editor and run it.

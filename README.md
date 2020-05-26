@@ -1,5 +1,5 @@
 ## **Data Cleaning Explanation:**
-The tables gathered for this project focus on how different sectors play a part in greenhouse gasemissions.
+The tables gathered for this project focus on how different sectors play a part in greenhouse gas emissions.
 
 * The tables electric_data and electric_waste were extracted as csv files from the International Energy Agency's (IEA) website. The only transformation that they needed were their column names were changed to be in proper PostgreSQL format.
 * The wri_data table was also extracted as a csv files from the World Resources Institute's website, and it was also pretty organized. The column names were changed for PostgreSQL use, and there was also a significant amount of NaNs that needed to be removed from the 1970s.

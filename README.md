@@ -60,7 +60,7 @@ The emissions_facilities table was built by scraping the EPA “FLIGHT” websit
 ## **All tables and relationships in the database:**
 ![](ETL_emissions_ERD.png)
 
-## **Links to websites were data was extracted from used:**
+## **Links to websites were data was extracted from:**
 1. [electric_data](https://www.iea.org/data-and-statistics?country=WORLD&fuel=Energy%20supply&indicator=Electricity%20generation%20by%20source)
 1. [electric_waste](https://www.iea.org/data-and-statistics?country=WORLD&fuel=Energy%20supply&indicator=Electricity%20generation%20from%20biofuels%20and%20waste%20by%20source)
 1. [wri_data](https://datasets.wri.org/dataset/cait-country)
